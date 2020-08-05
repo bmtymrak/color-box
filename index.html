@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="main-container">
+        <div id="box-container">
+
+        </div>
+        <input type="color"/>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        let color = document.querySelector("[type=color]")
+        let reset = document.querySelector("#reset")
+        let container = document.querySelector("#box-container")
+        container.innerHTML = `${"<div></div>".repeat(2500)}`
+
+        for (let i = 0; i < container.children.length; i++){
+            let elem = container.children[i]
+            elem.id = `box-${i+1}`
+            elem.style.backgroundColor = "#3defff"
+            elem.addEventListener('click', (e) => {
+                // console.log(elem)
+                elem.style.backgroundColor = color.value
+            })
+        }
+
+        reset.addEventListener('click', (e)=>{
+            for (let i = 0; i < container.children.length; i++){
+                let elem = container.children[i]
+                elem.style.backgroundColor = "#3defff"
+        }
+        })
+            // console.log(elem)
+        
+    </script>
+</body>
+</html>
